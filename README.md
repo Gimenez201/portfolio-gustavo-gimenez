@@ -1,21 +1,21 @@
-# [Seu Nome Completo]
-> Estudante de [Nome do Curso - ex: Ciência da Computação]
+# Gustavo Gimenez
+> Estudante de Ciência da Computação
  
 ---
  
 ### 📫 Contato & Redes Sociais
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](LINK_DO_SEU_LINKEDIN)
-[![E-mail](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:seu-email-profissional@email.com)
+[![E-mail](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:gtv.gustavogimenez@gmail.com)
 [![Currículo](https://img.shields.io/badge/Currículo-000000?style=for-the-badge&logo=read-the-docs&logoColor=white)](LINK_DO_PDF_OU_SITE)
  
 ---
  
 ### 👨‍💻 Sobre
-Atualmente cursando o [Xº] período de [Nome do Curso] na [Nome da Instituição]. Sou apaixonado por resolver problemas através da tecnologia e possuo foco em [Área de Interesse - ex: Desenvolvimento Backend / Análise de Dados].
+Atualmente cursando o 7º período de Ciência da Computação na UNICID. Sou apaixonado por resolver problemas através da tecnologia e possuo foco em Análise de Dados.
  
-* **Habilidades Técnicas:** [Ex: Python, Java, SQL, AWS, Docker].
+* **Habilidades Técnicas:** Python, Java e SQL.
 * **Habilidades Socioemocionais:** Trabalho em equipe, comunicação assertiva e pensamento crítico.
-* **Experiência/Projetos Relevantes:** Atuei em [Projeto de Iniciação Científica/Estágio] onde desenvolvi [resultado principal].
+* **Experiência/Projetos Relevantes:** Atuei em um Projeto de um programa em C onde desenvolvi um Mini Buscador de Documentos em C.
  
 ---
  

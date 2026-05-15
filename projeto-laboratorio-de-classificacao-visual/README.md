@@ -101,24 +101,20 @@ está disponível no arquivo abaixo:
 
 ---
 
-## ⚠️ Impacto Ético Observado
+## ## ⚠️ Reflexão Ética e Impacto Social
 
-O experimento evidencia que sistemas treinados com dados limitados ou estereotipados passam a reproduzir padrões discriminatórios, criando interpretações distorcidas da realidade.
+O experimento demonstrou como datasets limitados comprometem diretamente a lógica de decisão dos algoritmos de Inteligência Artificial. Ao utilizar imagens estereotipadas durante o treinamento, o modelo passou a associar características superficiais às categorias analisadas, produzindo interpretações distorcidas da realidade.
 
-Além do erro técnico, classificações enviesadas podem gerar:
+Além dos erros técnicos, o sistema também evidencia impactos sociais relevantes, como:
+- reforço de estereótipos;
+- exclusão profissional;
+- marginalização de indivíduos;
+- perda de confiança em sistemas automatizados.
 
-- exclusão social;
-- marginalização profissional;
-- reforço de preconceitos;
-- invisibilidade de determinados grupos.
+Para reduzir esses efeitos, foi proposta uma abordagem de *Human-in-the-loop*, utilizando revisão humana no processo de curadoria dos dados e validação contínua do modelo.
 
-A atividade também demonstra a importância da supervisão humana no processo de curadoria de dados e validação de modelos de Inteligência Artificial.
+📎 A análise ética completa está disponível no relatório em PDF.
 
----
-
-## 🧩 Solução Mitigadora Proposta
-
-Uma abordagem de *Human-in-the-loop* pode reduzir significativamente os efeitos do viés algorítmico. Nesse modelo, especialistas humanos participam da seleção, revisão e validação dos dados utilizados no treinamento da IA, garantindo maior diversidade, representatividade e equilíbrio entre as categorias analisadas.
 
 ---
 

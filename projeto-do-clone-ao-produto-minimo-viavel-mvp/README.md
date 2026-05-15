@@ -96,9 +96,9 @@ Isso garante o uso da tecnologia como aprendizado sem comprometer a originalidad
 ## 📂 Estrutura do Projeto
 /insightflow
 │
-├── index.html
-└── README.md
-
+├── Index.html
+├── README.md
+    
 ---
 
 ## 📌 Link do Projeto

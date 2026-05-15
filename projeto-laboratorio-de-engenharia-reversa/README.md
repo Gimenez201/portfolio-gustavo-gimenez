@@ -173,9 +173,9 @@ engenharia-reversa-com-ia/
 
 ## 👨‍💻 Autor
 
-**[SEU NOME AQUI]**  
-Estudante de **[SEU CURSO AQUI]**  
-📍 **[SUA INSTITUIÇÃO AQUI]**
+**Gustavo Gimenez**  
+Estudante de **Ciência da Computação**  
+📍 **UNICID**
 
 ---
 

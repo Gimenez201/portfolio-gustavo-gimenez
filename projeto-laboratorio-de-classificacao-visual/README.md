@@ -17,7 +17,7 @@ Durante o experimento, foram criadas duas categorias de classificação:
 
 O treinamento do modelo utilizou imagens com padrões estereotipados de aparência e vestimenta, simulando um cenário de coleta de dados não representativo. Após o treinamento, o sistema foi testado com indivíduos fora dos padrões utilizados no dataset, evidenciando falhas de inferência causadas pelo viés introduzido no processo.
 
-O projeto foi desenvolvido como parte das atividades acadêmicas do curso de **[SEU CURSO AQUI]** na instituição **[NOME DA INSTITUIÇÃO AQUI]**.
+O projeto foi desenvolvido como parte das atividades acadêmicas do curso de **Ciência da Computação** na instituição **Unicid**.
 
 ---
 
@@ -97,7 +97,7 @@ O relatório contendo:
 
 está disponível no arquivo abaixo:
 
-📎 [Abrir Relatório em PDF](./[NOME_DO_SEU_PDF_AQUI].pdf)
+📎 📎 [Abrir Relatório em PDF](./relatorio-analise-vies.pdf)
 
 ---
 
@@ -171,9 +171,9 @@ analise-vies-ia-visual/
 
 ## 👨‍💻 Autor
 
-**[SEU NOME AQUI]**  
-Estudante de **[SEU CURSO AQUI]**  
-📍 **[SUA INSTITUIÇÃO AQUI]**
+**Gustavo Gimenez**  
+Estudante de **Ciência da Computação**  
+📍 **Unicid**
 
 ---
 

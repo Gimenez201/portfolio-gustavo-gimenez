@@ -78,7 +78,7 @@ Após o treinamento, pessoas fora do padrão utilizado no dataset foram analisad
 
 ## 📸 Evidência da Falha de Classificação
 
-![Falha de classificação do modelo](./prints/falha-classificacao.png)
+![Falha de classificação](./falha-classificacao.png)
 
 *Figura 1: Exemplo de classificação incorreta causada pelo viés presente no conjunto de treinamento.*
 

@@ -97,7 +97,7 @@ O relatório contendo:
 
 está disponível no arquivo abaixo:
 
-📎 📎 [Abrir Relatório em PDF](./relatorio-analise-vies.pdf)
+📎 [Abrir Relatório em PDF](./relatorio-analise-vies.pdf)
 
 ---
 

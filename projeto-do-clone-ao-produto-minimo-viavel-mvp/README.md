@@ -12,6 +12,14 @@ O **InsightFlow** é uma aplicação web desenvolvida como parte de uma atividad
 
 O sistema permite inserir textos, que são analisados automaticamente por um mecanismo de inteligência simulada baseado em regras, gerando insights e armazenando os resultados na nuvem.
 
+## 📂 Código do Projeto
+
+O código-fonte completo do sistema está disponível na pasta:
+
+📁 `codigo-fonte/``index do projeto`
+
+Essa separação foi feita para organização do projeto e melhor manutenção do repositório.
+
 ---
 
 ## 🖼️ Evidência Visual do Sistema
@@ -89,7 +97,6 @@ Isso garante o uso da tecnologia como aprendizado sem comprometer a originalidad
 /insightflow
 │
 ├── index.html
-├── firebase-config
 └── README.md
 
 ---

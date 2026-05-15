@@ -103,7 +103,7 @@ Isso garante o uso da tecnologia como aprendizado sem comprometer a originalidad
 
 ## 📌 Link do Projeto
 
-🔗 https://gimenez201.github.io/insightflow/
+🔗 https://github.com/Gimenez201/insightflow
 
 ---
 
@@ -111,6 +111,6 @@ Isso garante o uso da tecnologia como aprendizado sem comprometer a originalidad
 
 **Gustavo Gimenez**  
 Curso: Ciência da Computação  
-Instituição: UNICID
+Instituição:📍 UNICID
 
----
+[⬅ Voltar ao Portfólio Principal](../README.md)

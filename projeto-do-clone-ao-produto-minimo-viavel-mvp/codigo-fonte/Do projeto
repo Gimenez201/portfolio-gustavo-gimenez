@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InsightFlow</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:#050505;
+      overflow-x:hidden;
+      color:white;
+    }
+
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+    }
+
+    .blob{
+      position:absolute;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      filter:blur(120px);
+      opacity:0.5;
+      animation:move 12s infinite alternate ease-in-out;
+    }
+
+    .blob:nth-child(1){background:#ff00c8;top:-100px;left:-100px;}
+    .blob:nth-child(2){background:#00d9ff;top:100px;right:-100px;animation-delay:2s;}
+    .blob:nth-child(3){background:#7a00ff;bottom:-100px;left:30%;animation-delay:4s;}
+
+    @keyframes move{
+      from{transform:translateY(0px) translateX(0px) scale(1);}
+      to{transform:translateY(40px) translateX(40px) scale(1.1);}
+    }
+
+    .container{
+      width:90%;
+      max-width:1300px;
+      margin:auto;
+      padding:40px 0;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:70px;
+    }
+
+    .logo{
+      font-size:40px;
+      font-weight:800;
+      background:linear-gradient(90deg,#ff00c8,#00d9ff,#7a00ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:glow 3s infinite linear;
+    }
+
+    @keyframes glow{
+      0%{filter:hue-rotate(0deg);}
+      100%{filter:hue-rotate(360deg);}
+    }
+
+    .buttons button{
+      padding:14px 22px;
+      border:none;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    .primary{
+      background:linear-gradient(90deg,#ff00c8,#00d9ff);
+      color:white;
+    }
+
+    .secondary{
+      background:rgba(255,255,255,0.08);
+      color:white;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    h1{
+      font-size:60px;
+      line-height:1;
+    }
+
+    .gradient{
+      background:linear-gradient(90deg,#ff00c8,#00d9ff,#7a00ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .dashboard{
+      background:rgba(255,255,255,0.08);
+      padding:20px;
+      border-radius:25px;
+      backdrop-filter:blur(20px);
+    }
+
+    .item{
+      background:rgba(255,255,255,0.05);
+      padding:10px;
+      border-radius:10px;
+      margin-bottom:10px;
+    }
+
+    /* MODAL */
+    #modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
+      justify-content:center;
+      align-items:center;
+    }
+
+    .box{
+      background:#111;
+      padding:20px;
+      border-radius:20px;
+      width:90%;
+      max-width:500px;
+    }
+
+    textarea{
+      width:100%;
+      height:120px;
+      margin-top:10px;
+      border-radius:10px;
+      padding:10px;
+      border:none;
+      outline:none;
+    }
+
+    .modal-buttons{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="bg">
+  <div class="blob"></div>
+  <div class="blob"></div>
+  <div class="blob"></div>
+</div>
+
+<div class="container">
+
+  <nav>
+    <div class="logo">InsightFlow</div>
+  </nav>
+
+  <div class="hero">
+
+    <div>
+      <h1>Data <span class="gradient">Reinvented</span></h1>
+
+      <div class="buttons">
+        <button class="primary" id="open">Iniciar Análise</button>
+        <button class="secondary" id="pdf">Exportar PDF</button>
+      </div>
+    </div>
+
+    <div class="dashboard">
+      <h3>Histórico</h3>
+      <div id="history"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal">
+  <div class="box">
+    <h2>Nova Análise</h2>
+    <textarea id="text"></textarea>
+
+    <div class="modal-buttons">
+      <button id="save" class="primary">Salvar</button>
+      <button id="close" class="secondary">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "COLE_AQUI_SUA_API_KEY",
+  authDomain: "insightflow-5dee2.firebaseapp.com",
+  projectId: "insightflow-5dee2",
+  storageBucket: "insightflow-5dee2.firebasestorage.app",
+  messagingSenderId: "370666999977",
+  appId: "1:370666999977:web:3b5a8d50a31898bd8fd9b8"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const modal = document.getElementById("modal");
+const history = document.getElementById("history");
+
+let cache = [];
+
+/* ===== IA SIMULADA ===== */
+function analisar(texto){
+
+  const t = texto.toLowerCase();
+
+  if(t.includes("erro") || t.includes("problema")){
+    return "⚠️ Problema detectado no sistema.";
+  }
+
+  if(t.includes("queda") || t.includes("diminuiu")){
+    return "📉 Tendência negativa identificada.";
+  }
+
+  if(t.includes("aumento") || t.includes("cresceu")){
+    return "📈 Tendência positiva detectada.";
+  }
+
+  return "📊 Análise neutra sem padrões críticos.";
+}
+
+/* ===== LOAD HISTÓRICO ===== */
+async function load(){
+
+  history.innerHTML = "";
+  cache = [];
+
+  const snap = await getDocs(collection(db,"analises"));
+
+  snap.forEach(doc => {
+
+    const data = doc.data();
+
+    cache.push(data);
+
+    const div = document.createElement("div");
+    div.className = "item";
+
+    div.innerHTML = `
+      <b>${data.texto}</b><br>
+      <small>${data.analise}</small>
+    `;
+
+    history.appendChild(div);
+
+  });
+
+}
+
+/* ===== SALVAR ===== */
+document.getElementById("save").onclick = async () => {
+
+  const text = document.getElementById("text").value;
+
+  if(!text) return;
+
+  const analise = analisar(text);
+
+  await addDoc(collection(db,"analises"),{
+    texto:text,
+    analise:analise,
+    data:new Date()
+  });
+
+  document.getElementById("text").value = "";
+  modal.style.display="none";
+
+  load();
+
+};
+
+/* ===== MODAL ===== */
+document.getElementById("open").onclick = () => {
+  modal.style.display="flex";
+};
+
+document.getElementById("close").onclick = () => {
+  modal.style.display="none";
+};
+
+/* ===== PDF ===== */
+document.getElementById("pdf").onclick = () => {
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.text("InsightFlow Report",10,10);
+
+  let y=20;
+
+  cache.forEach((i,idx)=>{
+    doc.text(`${idx+1}. ${i.texto} -> ${i.analise}`,10,y);
+    y+=10;
+  });
+
+  doc.save("relatorio.pdf");
+
+};
+
+load();
+
+</script>
+
+</body>
+</html>

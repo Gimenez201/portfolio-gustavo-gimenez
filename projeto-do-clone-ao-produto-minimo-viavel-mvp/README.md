@@ -16,7 +16,7 @@ O sistema permite inserir textos, que são analisados automaticamente por um mec
 
 O código-fonte completo do sistema está disponível na pasta:
 
-📁 `codigo-fonte/``index do projeto`
+📁 `codigo-fonte/index do projeto`
 
 Essa separação foi feita para organização do projeto e melhor manutenção do repositório.
 
